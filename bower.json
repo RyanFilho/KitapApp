@@ -1,0 +1,25 @@
+{
+  "name": "KitapApp",
+  "version": "0.0.1",
+  "description": "Aplicação para clentes do webservice",
+  "keywords": [
+    "angularjs",
+    "html",
+    "css"
+  ],
+  "authors": [
+    "Michel Marques e Ryan Filho"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.5",
+    "bootstrap": "~3.3.5"
+  }
+}
