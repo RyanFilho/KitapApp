@@ -8,3 +8,48 @@
 	font-weight: bold;
 	text-align: center;
 }
+
+.addon-ex
+{
+	padding: 0px 12px 0px 0px;
+	border: 0px;
+	border-radius: 0px;
+	background-color: #fff;
+}
+.cadastro-link
+{
+	text-align: right;
+}
+
+.panel-personalizado {
+  border-color: #673Ab7;
+}
+.panel-personalizado > .panel-heading {
+  color: #fff;
+  background-color: #673Ab7;
+  border-color: #673Ab7;
+}
+.panel-personalizado > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #673Ab7;
+}
+.panel-personalizado > .panel-heading .badge {
+  color: #fff;
+  background-color: #673Ab7;
+}
+.panel-personalizado > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #673Ab7;
+}
+
+.btn-personalizado {
+  color: #fff;
+  background-color: #FF4081;
+  border-color: #FF4081;
+}
+
+.btn-personalizado:hover
+{
+	color: #fff;
+}
+
+#673Ab7
+#FF4081
