@@ -1,7 +1,19 @@
 .main{
-	margin-top: 80px;
+	margin-top: 160px;
 }
-
+.cab > h1
+{
+	font-size: 5.8em;
+	font-weight: bold;
+	text-align:center;
+}
+.cab > p
+{
+	font-size: 2.0em;
+	font-weight: bold;
+	margin-bottom: 50px;
+	text-align:center;
+}
 .panel-heading
 {
 	font-size: 1.6em;
@@ -49,6 +61,38 @@
 .btn-personalizado:hover
 {
 	color: #fff;
+}
+
+
+.navbar-personalizado {
+  background-color: #673Ab7;
+  border-color: #673Ab7;
+
+}
+
+.navbar-personalizado .navbar-text {
+  color: #eee;
+}
+.navbar-personalizado .navbar-nav > li > a {
+  color: #eee;
+}
+.navbar-personalizado .navbar-nav > li > a:hover,
+.navbar-personalizado .navbar-nav > li > a:focus {
+  color: #FFFFFF;
+  background-color: transparent;
+}
+.navbar-personalizado .navbar-nav > .active > a,
+.navbar-personalizado .navbar-nav > .active > a:hover,
+.navbar-personalizado .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #673Ab7;
+}
+.navbar-personalizado .navbar-toggle {
+  border-color: #673Ab7;
+}
+.navbar-personalizado .navbar-toggle:hover,
+.navbar-personalizado .navbar-toggle:focus {
+  background-color: #673Ab7;
 }
 
 #673Ab7
