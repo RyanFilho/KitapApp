@@ -1,0 +1,56 @@
+<article class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-ex">
+	<div class="panel panel-personalizado">
+	  	<div class="panel-heading">CADASTRAR-SE</div>
+	  	
+	  	<div class="panel-body">
+	   
+			<form>
+				<div class="form-group">
+					<label for="ipNome">Nome: </label>
+					<input id="ipNome" type="text" class="form-control" placeholder="Nome" data-ng-model="registration.userName" required autofocus/>
+				</div>
+
+				<div class="form-group">
+					<label for="ipUF">Endereço: </label>
+					<div class="input-group">
+						<div class="input-group-addon addon-ex">
+							<input id="ipUF" type="text" class="form-control "  style="width:50px;" placeholder="UF"data-ng-model="registration.uf" required />
+						</div>
+						<input id="ipCidade" type="text" class="form-control" placeholder="Cidade"data-ng-model="registration.cidade" required />					
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="ipDDD">Telefone: </label>
+					<div class="input-group">
+						<div class="input-group-addon addon-ex">
+							<input id="ipDDD" type="text" class="form-control "  style="width:50px;" placeholder="ddd" required/>
+						</div>
+						<input id="ipNumero" type="text" class="form-control" placeholder="Numero"data-ng-model="registration.telefone" required/>		
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="ipEmailCadastro">Email: </label>
+					<input id="ipEmailCadastro" type="email" class="form-control" placeholder="Email" data-ng-model="registration.email" required/>
+				</div>
+
+				<div class="form-group">
+					<label for="ipSenhaCadastro">Senha: </label>
+					<input id="ipSenhaCadastro" type="password" class="form-control" placeholder="Senha"data-ng-model="registration.password" required/>
+				</div>
+
+				<div class="form-group">
+					<label for="ipConfirmaSenhaCadastro">Confirma senha: </label>
+					<input id="ipConfirmaSenhaCadastro" type="password" class="form-control" placeholder="Confirma Senha"data-ng-model="registration.confirmPassword"  required/>
+				</div>
+
+				<button type="submit" class="btn btn-personalizado btn-block btn-lg" data-ng-click="signUp()">Cadastrar</button>
+    			
+    			<div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+        			{{message}}
+    			</div>
+			</form>
+		</div>
+	</div>
+</article>
+		
