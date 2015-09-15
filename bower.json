@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "angular": "~1.4.5",
+    "angular-loading-bar": "~0.8.0",
     "bootstrap": "~3.3.5"
   }
 }
