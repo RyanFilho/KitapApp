@@ -17,6 +17,11 @@ app.config(function ($routeProvider) {
         templateUrl: "app/views/usuario/signup.html"
     });
 
+    $routeProvider.when("/painel", {
+        controller: "",
+        templateUrl: "app/views/usuario/painel.html"
+    });
+
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
 

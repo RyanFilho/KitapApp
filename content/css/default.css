@@ -1,6 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Montez);
+
 .main{
 	margin-top: 80px;
-	
+}
+body
+{
+  background-color: #83ACFF;
+  font-weight: bold;
 }
 .cab > h1
 {
@@ -18,56 +24,16 @@
   
 
 .navbar-personalizado {
-  background-color: #83ACFF;
-  border-color: #83ACFF;
-
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* For IE8 and earlier */
 }
 
-.navbar-personalizado .navbar-text {
-  color: #eee;
-}
-.navbar-personalizado .navbar-nav > li > a {
-  color: #eee;
-}
-.navbar-personalizado .navbar-nav > li > a:hover,
-.navbar-personalizado .navbar-nav > li > a:focus {
-  color: #FFFFFF;
-  background-color: transparent;
-}
-.navbar-personalizado .navbar-nav > .active > a,
-.navbar-personalizado .navbar-nav > .active > a:hover,
-.navbar-personalizado .navbar-nav > .active > a:focus {
-  color: #fff;
-  background-color: #83ACFF;
-}
-.navbar-personalizado .navbar-toggle {
-  border-color: #83ACFF;
-}
-.navbar-personalizado .navbar-toggle:hover,
-.navbar-personalizado .navbar-toggle:focus {
-  background-color: #83ACFF;
-}
+
 
 .panel-personalizado {
   border-color:  #83ACFF;
-}
-.panel-personalizado > .panel-heading {
-  color: #fff;
-  font-size: 1.8em;
-  font-weight: bold;
-  background-color: #83ACFF;
-  border-color:  #83ACFF;
-  text-align: center;
-}
-.panel-personalizado > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color:  #83ACFF;
-}
-.panel-personalizado > .panel-heading .badge {
-  color: #dff0d8;
-  background-color:  #83ACFF;
-}
-.panel-personalizado > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color:  #83ACFF;
+  background-color: #FFF;
+  box-shadow: 0px 5px 10px #222;
 }
 
 .addon-ex
@@ -83,18 +49,55 @@
 
 .btn-personalizado
 {
-  background-color: #FF5930;
-  border-color: #FF5930;
+  background-color: #FF3030;
+  border-color: #FF3030;
   color: #fff;
   font-size: 1.6em;
   font-weight: bold;
 }
 
 @media (min-width: 1200px) {
-.col-lg-offset-ex
-{
-  margin-left: 29.17%;
+  .col-lg-offset-ex
+  {
+    margin-left: 29.17%;
+  }
 }
+
+.dash-nav > li > a
+{
+  font-weight: bold;
+  color: #eee;
+}
+#navbar-principal .navbar-nav > li > a
+{
+  color: #eee;
+
+}
+#navbar-principal .navbar-nav > li > a:hover
+{
+  color: #222;
+  background-color: #fff;
+}
+
+.dash-nav > li > a:hover
+{
+  background-color: #222;
+  color: #fff;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+.dash-container
+{
+  background-color: #fff;
+  height: 900px;
+  box-shadow: 0px 5px 10px #222;
+}
+
+.titulo-kitap
+{
+  color:#FF3030;font-size:1.5em;font-weight: bold;
+  font-family: 'Montez', cursive;
 }
 
  #83ACFF
