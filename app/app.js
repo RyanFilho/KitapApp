@@ -30,6 +30,12 @@ app.config(function ($routeProvider) {
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
 
+var serviceBase = 'http://kitapws.azurewebsites.net/';
+app.constant('ngAuthSettings', {
+    apiServiceBaseUri: serviceBase,
+    clientId: 'KitapAppJs'
+});
+
 app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptorService');
 });
