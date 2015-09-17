@@ -17,6 +17,11 @@ app.config(function ($routeProvider) {
         templateUrl: "app/views/usuario/signup.html"
     });
 
+    $routeProvider.when("/livro/cadastro", {
+        controller: "",
+        templateUrl: "app/views/livro/cadastro.html"
+    });
+
     $routeProvider.when("/painel", {
         controller: "",
         templateUrl: "app/views/usuario/painel.html"
