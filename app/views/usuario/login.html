@@ -2,7 +2,11 @@
 <article class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
 	<div class="panel  panel-personalizado">
 	  				
-	  	<div class="panel-heading"></div>
+	  	<div class="panel-heading">
+	  		<div data-ng-hide="message == ''" class="alert alert-danger">
+			    {{message}}
+			</div
+	  	</div>
 	  				
 	  	<div class="panel-body">
 			<form>
@@ -27,9 +31,7 @@
 				</div>
 							
 				<button class="btn btn-lg btn-personalizado btn-block" type="submit" data-ng-click="login()">Entrar</button>
-			    <div data-ng-hide="message == ''" class="alert alert-danger">
-			        {{message}}
-			    </div
+			    
 			</form>
 		</div>
 
