@@ -7,17 +7,25 @@
    			<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2 thumbnail">
 			    <img src="content/imagens/livrodefault.png" alt="Thumbnail">
 			</div>				
+			{{livro}}
 			<form class="col-lg-10" name="cadastroLivroForm" novalidate>
 
-			  <div class="form-group " ng-class="{ 'has-error' : cadastroLivroForm.isbn.$invalid && !cadastroLivroForm.isbn.$pristine }">
-			    <label for="isnb" class="control-label">ISBN</label>
-		    	<input type="number" class="form-control" id="isbn" name="isbn" placeholder="Ex: 9780152465032" ng-required="true" ng-model="livro.isbn" ng-minlength="10" ng-maxlength="13">
-		    	<p ng-show="cadastroLivroForm.isbn.$invalid && !cadastroLivroForm.titulo.$pristine" class="help-block">Isbn é obrigatorio.</p>
-		    	<p ng-show="cadastroLivroForm.isbn.$error.minlength" class="help-block">Mínimo 10 caracteres.</p>	
-		    	<p ng-show="cadastroLivroForm.isbn.$error.maxlength" class="help-block">Maximo 13 caracteres.</p>
-		    	<p ng-show="cadastroLivroForm.isbn.$error.number" class="help-block">Apenas números</p>		        
+			  <div class="form-group " ng-class="{ 'has-error' : cadastroLivroForm.isbn13.$invalid && !cadastroLivroForm.isbn13.$pristine }">
+			    <label for="isbn13" class="control-label">ISBN13</label>
+		    	<input type="number" class="form-control" id="isbn13" name="isbn13" placeholder="Ex: 9780152465032" ng-required="true" ng-model="livro.isbn[0]" ng-minlength="13" ng-maxlength="13" ng-blur="pegarLivro(livro.isbn[0])">
+		    	<p ng-show="cadastroLivroForm.isbn13.$invalid && !cadastroLivroForm.titulo.$pristine" class="help-block">ISBN13 é obrigatorio.</p>
+		    	<p ng-show="cadastroLivroForm.isbn13.$error.minlength || cadastroLivroForm.isbn13.$error.maxlength" class="help-block">São 13 algarismos.</p>
+		    	<p ng-show="cadastroLivroForm.isbn13.$error.number" class="help-block">Apenas números</p>		        
 			  </div>
+			  <div class="form-group " ng-class="{ 'has-error' : cadastroLivroForm.isbn10.$invalid && !cadastroLivroForm.isbn10.$pristine }">
+			    <label for="isbn10" class="control-label">ISBN10</label>
 
+		    	<input type="number" class="form-control" id="isbn10" name="isbn10" placeholder="Ex: 8571644756" ng-required="true" ng-model="livro.isbn[1]" ng-minlength="10" ng-maxlength="10" ng-blur="pegarLivro(livro.isbn[1])">
+
+		    	<p ng-show="cadastroLivroForm.isbn10.$invalid && !cadastroLivroForm.titulo.$pristine" class="help-block">ISBN10 é obrigatorio.</p>
+		    	<p ng-show="cadastroLivroForm.isbn10.$error.minlength || cadastroLivroForm.isbn10.$error.maxlength" class="help-block">São 10 algarismos.</p>
+		    	<p ng-show="cadastroLivroForm.isbn10.$error.number" class="help-block">Apenas números</p>		        
+			  </div>
 			  <div class="form-group" ng-class="{ 'has-error' : cadastroLivroForm.titulo.$invalid && !cadastroLivroForm.titulo.$pristine }">
 			    <label for="titulo" class="control-label">Titulo</label>
 			    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Ex: O Pequeno Príncipe" ng-required="true" ng-model="livro.titulo">
