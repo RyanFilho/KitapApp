@@ -1,64 +1,65 @@
 <div class="row">
-<article class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1">
+<article class="col-xs-12 col-sm-12 col-md-4 col-lg-6 col-lg-offset-3 col-md-offset-3">
 	<div class="panel panel-personalizado">
 	  	<div class="panel-heading">  </div>
 	  	
 	  	<div class="panel-body">
-   			<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2 thumbnail">
-			    <img ng-src="livro.imagem" alt="Thumbnail">
-			</div>				
-			{{livro}}
-			<form class="col-lg-10" name="cadastroLivroForm" novalidate>
+	  		<!-- ISBN 13 INPUT -->
+	  		<div class="row text-center">
+	  			<label for="imagemLivro" class="control-label">Capa</label><br/>
+	  			<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-3 thumbnail">
+			   		<img name="imagemLivro" ng-src="{{livro.imagem}}" alt="Thumbnail">
+				</div>	
+	  		</div>
+			
+			<form class="col-lg-12" name="cadastroLivroForm" novalidate>
+
 				<!-- ISBN 13 INPUT -->
 			  <div class="form-group " ng-class="{ 'has-error' : cadastroLivroForm.isbn13.$invalid && !cadastroLivroForm.isbn13.$pristine }">
 			    <label for="isbn13" class="control-label">ISBN13</label>
-		    	<input type="number" class="form-control" id="isbn13" name="isbn13" placeholder="Ex: 9780152465032" ng-required="true" ng-model="livro.isbn[0]" ng-minlength="13" ng-maxlength="13" ng-blur="pegarLivro(livro.isbn[0])">
+		    	<input  class="form-control" id="isbn13" name="isbn13" placeholder="Ex: 9780152465032" ng-required="true" ng-model="livro.isbn[1]" ng-minlength="13" ng-maxlength="13" ng-blur="pegarLivro(livro.isbn[1])">
 		    	<p ng-show="cadastroLivroForm.isbn13.$invalid && !cadastroLivroForm.titulo.$pristine" class="help-block">ISBN13 é obrigatorio.</p>
-		    	<p ng-show="cadastroLivroForm.isbn13.$error.minlength || cadastroLivroForm.isbn13.$error.maxlength" class="help-block">São 13 algarismos.</p>
-		    	<p ng-show="cadastroLivroForm.isbn13.$error.number" class="help-block">Apenas números</p>		        
+		    	<p ng-show="cadastroLivroForm.isbn13.$error.minlength || cadastroLivroForm.isbn13.$error.maxlength" class="help-block">São 13 algarismos.</p>				        
 			  </div>
+
 			  <!-- ISBN 10 INPUT -->
 			  <div class="form-group " ng-class="{ 'has-error' : cadastroLivroForm.isbn10.$invalid && !cadastroLivroForm.isbn10.$pristine }">
 			    <label for="isbn10" class="control-label">ISBN10</label>
-		    	<input type="number" class="form-control" id="isbn10" name="isbn10" placeholder="Ex: 8571644756" ng-required="true" ng-model="livro.isbn[1]" ng-minlength="10" ng-maxlength="10" ng-blur="pegarLivro(livro.isbn[1])">
+		    	<input  class="form-control" id="isbn10" name="isbn10" placeholder="Ex: 8571644756" ng-required="true" ng-model="livro.isbn[0]" ng-minlength="10" ng-maxlength="10" ng-blur="pegarLivro(livro.isbn[0])">
 		    	<p ng-show="cadastroLivroForm.isbn10.$invalid && !cadastroLivroForm.titulo.$pristine" class="help-block">ISBN10 é obrigatorio.</p>
-		    	<p ng-show="cadastroLivroForm.isbn10.$error.minlength || cadastroLivroForm.isbn10.$error.maxlength" class="help-block">São 10 algarismos.</p>
-		    	<p ng-show="cadastroLivroForm.isbn10.$error.number" class="help-block">Apenas números</p>		        
+		    	<p ng-show="cadastroLivroForm.isbn10.$error.minlength || cadastroLivroForm.isbn10.$error.maxlength" class="help-block">São 10 algarismos.</p>		    			        
 			  </div>
+
 			  <!-- TITULO INPUT -->
 			  <div class="form-group" ng-class="{ 'has-error' : cadastroLivroForm.titulo.$invalid && !cadastroLivroForm.titulo.$pristine }">
 			    <label for="titulo" class="control-label">Titulo</label>
 			    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Ex: O Pequeno Príncipe" ng-required="true" ng-model="livro.titulo">
 			    <p ng-show="cadastroLivroForm.titulo.$invalid && !cadastroLivroForm.titulo.$pristine" class="help-block">Título é obrigatorio.</p>				    
 			  </div>
+
 			  <!-- AUTORES INPUT -->
 			  <div class="form-group" ng-class="{ 'has-error' : cadastroLivroForm.autores.$invalid && !cadastroLivroForm.autores.$pristine }">
 			    <label for="autores" class="control-label">Autores</label>
 			    <input type="text" class="form-control" id="autores" name="autores" placeholder="Ex: Antoine de Saint-Exupéry" ng-required="true" ng-model="livro.autores">	
 			    <p ng-show="cadastroLivroForm.autores.$invalid && !cadastroLivroForm.autores.$pristine" class="help-block">Autores é obrigatorio.</p>			    
 			  </div>
+
 			  <!-- ANO DE PUBLICAÇÃO INPUT -->
 			  <div class="form-group" ng-class="{ 'has-error' : cadastroLivroForm.publicacao.$invalid && !cadastroLivroForm.publicacao.$pristine }">
 			    <label for="publicacao" class="control-label">Ano de publicação</label>
-			    <input type="number" class="form-control" id="publicacao" name="publicacao" placeholder="Ex: 1943" ng-required="true" ng-model="livro.publicacao">	
-			    <p ng-show="cadastroLivroForm.publicacao.$invalid && !cadastroLivroForm.publicacao.$pristine" class="help-block">Ano de publicação é obrigatorio.</p>
-			    <p ng-show="cadastroLivroForm.publicacao.$error.number" class="help-block">Apenas números</p>    
+			    <input  class="form-control" id="publicacao" name="publicacao" placeholder="Ex: 1943" ng-required="true" ng-model="livro.publicacao">	
+			    <p ng-show="cadastroLivroForm.publicacao.$invalid && !cadastroLivroForm.publicacao.$pristine" class="help-block">Ano de publicação é obrigatorio.</p>			       
 			  </div>
-			  <!-- IDIOMA INPUT -->
-			  <div class="form-group" ng-class="{ 'has-error' : cadastroLivroForm.idioma.$invalid && !cadastroLivroForm.idioma.$pristine }">
-			    <label for="idioma" class="control-label">Idioma</label>
-			    <input type="text" class="form-control" id="idioma" name="idioma" placeholder="Ex: Língua francesa" ng-required="true" ng-model="livro.idioma" >
-			    <p ng-show="cadastroLivroForm.idioma.$invalid && !cadastroLivroForm.idioma.$pristine" class="help-block">Idioma é obrigatorio.</p>
-			  </div>
+
 			  <!-- NUMERO DE PAGINAS INPUT -->
 			  <div class="form-group" ng-class="{ 'has-error' : cadastroLivroForm.paginas.$invalid && !cadastroLivroForm.paginas.$pristine }">
 			    <label for="paginas" class="control-label">Nº Paginas</label>
-			    <input type="number" class="form-control" id="paginas" name="paginas" placeholder="Ex: 96" ng-required="true" ng-model="livro.paginas">	
-			    <p ng-show="cadastroLivroForm.paginas.$invalid && !cadastroLivroForm.paginas.$pristine" class="help-block">Nº Paginas é obrigatorio.</p>
-			    <p ng-show="cadastroLivroForm.paginas.$error.number" class="help-block">Apenas números</p>		    
+			    <input  class="form-control" id="paginas" name="paginas" placeholder="Ex: 96" ng-required="true" ng-model="livro.paginas">	
+			    <p ng-show="cadastroLivroForm.paginas.$invalid && !cadastroLivroForm.paginas.$pristine" class="help-block">Nº Paginas é obrigatorio.</p>			        
 			  </div>
+
 			  <!-- SUBMIT -->
-			  <button ng-click="" ng-disabled="cadastroLivroForm.$invalid" class="btn btn-personalizado">Cadastrar</button>
+			  <button ng-click="" ng-disabled="cadastroLivroForm.$invalid" class="btn btn-personalizado btn-block">Cadastrar</button>
 
 			  <div ng-class="{ 'has-error' : cadastroLivroForm.$invalid }" ng-show="cadastroLivroForm.$invalid">
 			  	<p  class="help-block">Preencha todos os campos.</p>	
