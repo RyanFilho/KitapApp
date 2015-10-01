@@ -10,7 +10,7 @@ app.factory('googleBookService', ['$http', function ($http) {
 					info = {
 						isbn: [temp.industryIdentifiers[0], temp.industryIdentifiers[1]],
 						titulo: temp.title,
-						img : temp.imageLinks.thumbnail,					
+						imagem : temp.imageLinks.thumbnail,					
 						autores: temp.authors.join(","),
 						paginas: temp.pageCount,
 						publicacao: temp.publishedDate,
