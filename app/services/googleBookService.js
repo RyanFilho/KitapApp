@@ -5,21 +5,64 @@ app.factory('googleBookService', ['$http', function ($http) {
 
 		$http({method: 'GET', url:  (url + valor) })
 			.success(function (data, status, headers, config) {
-				var dadosLivro = _validador(data);
+				console.log("Service recebe da googleapis : "); // Testes
+				console.log(data);
+				var dadosLivro = _validar(data);
 				successCallBack(dadosLivro);
+
 		});
 	}
 
-	var _validador = function (data) {
-		temp = {};
+	var _validar = function (data) {
 		dadosLivro = {};
-		typeof data.items[0].volumeInfo != 'undefined' ? temp = data.items[0].volumeInfo : temp = null;
-		typeof temp.industryIdentifiers != 'undefined'? dadosLivro.isbn = [temp.industryIdentifiers[0].identifier, temp.industryIdentifiers[1].identifier] : dadosLivro.isbn = null;
-		typeof temp.title != 'undefined' ? dadosLivro.titulo = temp.title : dadosLivro.titulo = null;
-		typeof temp.imageLinks.thumbnail != 'undefined'? dadosLivro.imagem = temp.imageLinks.thumbnail : dadosLivro.imagem = null;
-		typeof temp.authors != 'undefined'? dadosLivro.autores = temp.authors.join(",") : dadosLivro.autores = null;
-		typeof temp.pageCount != 'undefined'? dadosLivro.paginas = temp.pageCount : dadosLivro.paginas = null;
-		typeof temp.publishedDate != 'undefined'? dadosLivro.publicacao = temp.publishedDate : dadosLivro.publicacao = null;
+
+		atributosGoogle = [
+			'industryIdentifiers',
+			'title',
+			'imageLinks',
+			'authors',
+			'pageCount',
+			'publishedDate'
+		];
+
+		atributosKitap = [
+			'isbn',
+			'titulo',
+			'imagemLink',
+			'autores',
+			'paginas',
+			'publicacao'
+		];
+
+		if (data.totalItems > 0) {
+		 	dados = data.items[0].volumeInfo;
+		}else {
+			dados = {};
+		}
+
+		atributosGoogle.forEach(
+			function (value, index) {
+				if (value in dados) {
+					if (atributosKitap[index] == 'autores')
+					{
+						dadosLivro.autores = dados[value].join(',');
+					} 
+					else if (atributosKitap[index] == 'isbn')
+					{
+						auxiliar = {};
+						auxiliar.isbn = dados[value];
+						dadosLivro.isbn = [auxiliar.isbn[0].identifier, auxiliar.isbn[1].identifier];
+					}
+					else if (atributosKitap[index] == 'imagemLink') 
+					{
+						dadosLivro.imagemLink = dados[value].thumbnail;
+					}else 
+					{
+						dadosLivro[atributosKitap[index]] = dados[value];
+					}			
+				};
+			}
+		);	
 		return dadosLivro;
 	}
 
