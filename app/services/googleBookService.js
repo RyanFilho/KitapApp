@@ -1,19 +1,43 @@
 app.factory('googleBookService', ['$http', function ($http) {
 	googleBookServiceFactory = {};
+
+
 	var _getBook = function (valor, successCallBack) {
-		var url = "https://www.googleapis.com/books/v1/volumes?q=isbn:";				
+		var url = "https://www.googleapis.com/books/v1/volumes?q=isbn:";	
+		valor = _validarString(valor);
 
-		$http({method: 'GET', url:  (url + valor) })
-			.success(function (data, status, headers, config) {
-				console.log("Service recebe da googleapis : "); // Testes
-				console.log(data);
-				var dadosLivro = _validar(data);
-				successCallBack(dadosLivro);
+		if (valor) {
 
-		});
+			$http({method: 'GET', url:  (url + valor) })
+				.success(function (data, status, headers, config) {
+					var dadosLivro = _validarResponse(data);
+					successCallBack(dadosLivro);
+				}).error(function () {
+					successCallBack('');
+				});
+		}else
+			successCallBack('');
+		
 	}
 
-	var _validar = function (data) {
+
+	var _validarString = function (string) {
+		if(string){
+
+			var novaString = string.replace(/-/g, '');
+			if (novaString.length == 10 || novaString.length == 13){	
+				return novaString;
+			}
+			else{
+				return null;
+			}
+		}else{
+			return null;
+		}
+		
+	}
+
+	var _validarResponse = function (data) {
 		dadosLivro = {};
 
 		atributosGoogle = [
@@ -51,7 +75,12 @@ app.factory('googleBookService', ['$http', function ($http) {
 					{
 						auxiliar = {};
 						auxiliar.isbn = dados[value];
-						dadosLivro.isbn = [auxiliar.isbn[0].identifier, auxiliar.isbn[1].identifier];
+						if (auxiliar.isbn[0].type == 'ISBN_10') {
+							dadosLivro.isbn = [auxiliar.isbn[0].identifier, auxiliar.isbn[1].identifier];
+						} else{
+							dadosLivro.isbn = [auxiliar.isbn[1].identifier, auxiliar.isbn[0].identifier];
+						};
+						
 					}
 					else if (atributosKitap[index] == 'imagemLink') 
 					{
@@ -60,6 +89,14 @@ app.factory('googleBookService', ['$http', function ($http) {
 					{
 						dadosLivro[atributosKitap[index]] = dados[value];
 					}			
+				}else {
+					if (atributosKitap[index] == 'imagemLink')
+					{
+						dadosLivro.imagemLink = 'content/imagens/defaultbook.png';
+					}else {
+						dadosLivro[atributosKitap[index]] = '';
+					}
+					
 				};
 			}
 		);	
