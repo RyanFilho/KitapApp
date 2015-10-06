@@ -18,7 +18,7 @@ app.config(function ($routeProvider) {
     });
 
     $routeProvider.when("/livro/cadastro", {
-        controller: "",
+        controller: "cadastroLivroController",
         templateUrl: "app/views/livro/cadastro.html"
     });
 

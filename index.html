@@ -2,7 +2,7 @@
 <html data-ng-app="KitapApp">
 <head>
 	<meta charset="UTF-8">
-	<title>Pagina Principal</title>
+	<title>Kitap</title>
 	<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
 	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="content/css/default.css">
@@ -12,13 +12,13 @@
 	<nav class="navbar navbar-inverse navbar-personalizado navbar-static-top">
 		<div class="container-fluid">
 		  	<div class="navbar-header">
-	      		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-principal" aria-expanded="false">
-			        <span class="sr-only">Toggle navigation</span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-	      		</button>
-      
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-principal" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+		  		<a class="navbar-brand" href="#/home"><span class="k-logo">K</span>itap</a>      
     		</div>
 		    <div class="collapse navbar-collapse" id="navbar-principal">
       			<ul class="nav navbar-nav navbar-right">
@@ -46,10 +46,12 @@
     <!-- Load services -->
     <script src="app/services/authInterceptorService.js"></script>
     <script src="app/services/authService.js"></script>
+    <script src="app/services/googleBookService.js"></script>
     
     <!-- Load controllers -->
     <script src="app/controllers/indexController.js"></script>
     <script src="app/controllers/homeController.js"></script>
     <script src="app/controllers/loginController.js"></script>
     <script src="app/controllers/signupController.js"></script>
+    <script src="app/controllers/cadastroLivroController.js"></script>
 </html>
