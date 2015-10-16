@@ -1,4 +1,6 @@
 # KitapApp
 Aplicação para os usuários do projeto Kitap
 
-Web Api - > https://github.com/HandomX/KitapWS
+Hospedado em kitap.azurewebsites.net
+
+Web Api - > github.com/HandomX/KitapWS
