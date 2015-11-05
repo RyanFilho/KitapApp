@@ -1,4 +1,4 @@
-var app = angular.module('KitapApp', ['ngRoute', 'LocalStorageModule', 'angular-loading-bar']);
+var app = angular.module('KitapApp', ['ngRoute', 'LocalStorageModule', 'angular-loading-bar', 'ngResource']);
 
 app.config(function ($routeProvider) {
 

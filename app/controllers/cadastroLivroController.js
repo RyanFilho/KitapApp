@@ -8,7 +8,7 @@ app.controller('cadastroLivroController', ['$scope', 'googleBookService', functi
 		paginas: '',
 		publicacao: ''
 	};
-	$scope.pegarLivro = function (isbn) {
+	$scope.procurarExistente = function (isbn) {
 		googleBookService.getBook(isbn, function (livroBack) {
 			$scope.livro = livroBack;	
 		});

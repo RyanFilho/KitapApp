@@ -1,5 +1,4 @@
 <div class="row">
-<link rel="stylesheet" href="http://css-spinners.com/css/spinner/throbber.css" type="text/css">
 <article class="col-xs-12 col-sm-12 col-md-4 col-lg-6 col-lg-offset-3 col-md-offset-3">
 	<div class="panel panel-personalizado">
 	  	<div class="panel-heading">  </div>
@@ -31,7 +30,7 @@
 		    		maxlength="13" 
 		    		ng-required="true" 
 		    		ng-model="livro.isbn[1]" 
-		    		ng-blur="pegarLivro(livro.isbn[1])">      
+		    		ng-blur="procurarExistente(livro.isbn[1])">      
 			  </div>
 
 			  <!-- ISBN 10 INPUT -->
@@ -52,7 +51,7 @@
 		    		ng-maxlength="10" 
 		    		minlength="10" 
 		    		maxlength="10" 
-		    		ng-blur="pegarLivro(livro.isbn[0])">	    			        
+		    		ng-blur="procurarExistente(livro.isbn[0])">	    			        
 			  </div>
 
 			  <!-- TITULO INPUT -->
