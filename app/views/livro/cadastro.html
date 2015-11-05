@@ -12,7 +12,7 @@
 				</div>	
 	  		</div>
 			
-			<form class="col-lg-12" name="cadastroLivroForm" novalidate>
+			<form ng-submit="cadastrarLivro(livro)"  class="col-lg-12" name="cadastroLivroForm" novalidate>
 
 				<!-- ISBN 13 INPUT -->
 			  <div 
@@ -115,10 +115,11 @@
 			  </div>
 
 			  <!-- SUBMIT -->
-			  <button 
-			  	ng-submit="" 
+			  <button 			  	
 			  	ng-disabled="cadastroLivroForm.$invalid" 
-			  	class="btn btn-personalizado btn-block">Cadastrar</button>
+			  	class="btn btn-personalizado btn-block"
+			  	type="submit" 
+			  	>Cadastrar</button>
 
 			  <div 
 			  	ng-class="{ 'has-error' : cadastroLivroForm.$invalid }" 
