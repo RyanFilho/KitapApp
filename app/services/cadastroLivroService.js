@@ -1,7 +1,3 @@
-app.factory('cadastroLivroService', ['$http', function ($http) {
-	// var _postLivro = function () {	
-	// 		$http.post();
-	// }
-	// cadastroLivroServiceFactory = _postLivro;
-	// return cadastroLivroServiceFactory;
+app.factory('cadastroLivroService', ['$resource', function ($resource) {
+	return $resource('wskitap.azurewebsites.net/api/livros/:id');
 }]);
