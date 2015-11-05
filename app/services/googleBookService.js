@@ -1,29 +1,26 @@
-app.factory('googleBookService', ['$http', function ($http) {
+app.factory('googleBookService', ['$http', '$resource', function ($http, $resource) {
 	googleBookServiceFactory = {};
 
+	var _getBook = function (isbn, successCallBack) {
 
-	var _getBook = function (valor, successCallBack) {
 		var url = "https://www.googleapis.com/books/v1/volumes?q=isbn:";	
-		valor = _validarString(valor);
+		isbn = _validarString(isbn);
 
-		if (valor) {
+		if (isbn) {
+			var resource = $resource('https://www.googleapis.com/books/v1/:verb');
+			
+			resource.get({verb:'volumes', q:'isbn:' + isbn}, function (response) {
 
-			$http({method: 'GET', url:  (url + valor) })
-				.success(function (data, status, headers, config) {
-					var dadosLivro = _validarResponse(data);
-					successCallBack(dadosLivro);
-				}).error(function () {
-					successCallBack('');
-				});
-		}else
-			successCallBack('');
-		
+				var dados = _validarResponse(response);
+				successCallBack(dados);
+
+			})
+
+		}
 	}
-
 
 	var _validarString = function (string) {
 		if(string){
-
 			var novaString = string.replace(/-/g, '');
 			if (novaString.length == 10 || novaString.length == 13){	
 				return novaString;
