@@ -6,12 +6,15 @@
 <section class="row">
 			
 	<article class="col-md-8 col-md-offset-2">
-				
-		<div class="input-group input-group-lg">
-			<input class="form-control" type="text" placeholder="Autor, Titulo ...">
-			<span class="input-group-btn">
-        		<button class="btn btn-personalizado" type="button">Pesquisar!</button>
-      		</span>
-		</div>
+		<form action="/#/search" method="GET">
+			<div class="input-group input-group-lg">
+				<input class="form-control" name="query" type="text" placeholder="Autor, Titulo ..." autofocus>
+				<span class="input-group-btn">
+	        		<button class="btn btn-personalizado" type="submit">Pesquisar!</button>
+	      		</span>
+			</div>			
+		</form>
+
+
 	</article>
 </section>
