@@ -2,32 +2,38 @@ var app = angular.module('KitapApp', ['ngRoute', 'LocalStorageModule', 'angular-
 
 app.config(function ($routeProvider) {
 
-    $routeProvider.when("/home", {
+    $routeProvider
+    .when("/home", {
         controller: "homeController",
         templateUrl: "app/views/home.html"
-    });
+    })
 
-    $routeProvider.when("/login", {
+    .when("/login", {
         controller: "loginController",
         templateUrl: "app/views/usuario/login.html"
-    });
+    })
 
-    $routeProvider.when("/signup", {
+    .when("/signup", {
         controller: "signupController",
         templateUrl: "app/views/usuario/signup.html"
-    });
+    })
 
-    $routeProvider.when("/livro/cadastro", {
-        controller: "cadastroLivroController",
-        templateUrl: "app/views/livro/cadastro.html"
-    });
-
-    $routeProvider.when("/painel", {
+    .when("/painel", {
         controller: "",
         templateUrl: "app/views/usuario/painel.html"
-    });
+    })
 
-    $routeProvider.otherwise({ redirectTo: "/home" });
+    .when("/livro/cadastro", {
+        controller: "cadastroExemplarController",
+        templateUrl: "app/views/livro/cadastro.html"
+    })
+
+    .when("/search", {
+        controller: "searchController",
+        templateUrl: "app/views/livro/search.html"
+    })
+
+    .otherwise({ redirectTo: "/home" });
 });
 
 var serviceBase = 'http://kitapws.azurewebsites.net/';
@@ -40,6 +46,9 @@ app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptorService');
 });
 
-app.run(['authService', function (authService) {
+app.run(['authService', '$rootScope', '$location', function (authService, $rootScope, $location) {
     authService.fillAuthData();
+    $rootScope.pesquisar = function(value) {
+        $location.path('/search').search({query: value});
+    };
 }]);

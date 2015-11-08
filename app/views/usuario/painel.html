@@ -1,14 +1,23 @@
-<div class="row main">
-<article class="col-sm-4 col-md-2 ">
-	<ul class="nav dash-nav">
+<div class="row">
+
+	<ul class="nav nav-pills nav-stacked col-md-2">
 		<li role="presentation"><a href="#">Perfil</a></li>
 		<li role="presentation" ><a href="#">Navegar</a></li>
-		<li role="presentation"><a href="#">Meus Livros</a></li>
-		<li role="presentation"><a href="#">Emprestimos</a></li>
+		<li role="presentation"><a href="#/livro/cadastro">Cadastrar Exemplar</a></li>
 		<li role="presentation"><a href="#">Configurações</a></li>	
 	</ul>
-</article>
-<article class="col-md-10 col-sm-8 dash-container">
-	
-</article>
+
+<div class="panel panel-default col-md-3">
+  <div class="panel-body">
+    <div class="thumbnail">
+      <img ng-src="{{livro.imagemLink}}" alt="livro.titulo">
+      <div class="caption">
+        <h4>{{livro.titulo}}</h4>
+        <h5>{{livro.autores}}</h5>
+        <p>{{livro.descricao}}</p>
+        <p><a href="#" class="btn btn-primary" role="button">Pedir</a> <a href="#" class="btn btn-default" role="button">Favorito</a></p>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

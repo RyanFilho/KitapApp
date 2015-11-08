@@ -20,6 +20,12 @@
             </button>
 		  		<a class="navbar-brand" href="#/home"><span class="k-logo">K</span>itap</a>      
     		</div>
+        <form ng-submit="pesquisar(navQuery)" class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input ng-model="navQuery" name="navQuery" type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
 		    <div class="collapse navbar-collapse" id="navbar-principal">
       			<ul class="nav navbar-nav navbar-right">
       			<li data-ng-hide="authentication.isAuth"><a href="#/login">Login</a></li>
@@ -48,12 +54,14 @@
     <script src="app/services/authInterceptorService.js"></script>
     <script src="app/services/authService.js"></script>
     <script src="app/services/googleBookService.js"></script>
-    <script src="app/services/cadastroLivroService.js"></script>
+    <script src="app/services/livroService.js"></script>
+    <script src="app/services/helpersService.js"></script>
     
     <!-- Load controllers -->
     <script src="app/controllers/indexController.js"></script>
     <script src="app/controllers/homeController.js"></script>
     <script src="app/controllers/loginController.js"></script>
     <script src="app/controllers/signupController.js"></script>
-    <script src="app/controllers/cadastroLivroController.js"></script>
+    <script src="app/controllers/livro/cadastroExemplarController.js"></script>
+    <script src="app/controllers/livro/searchController.js"></script>
 </html>

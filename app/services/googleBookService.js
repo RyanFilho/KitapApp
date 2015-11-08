@@ -1,21 +1,19 @@
-app.factory('googleBookService', ['$http', '$resource', function ($http, $resource) {
+app.factory('googleBookService', ['$http', '$resource', 'helpersService', function ($http, $resource, helpers) {
 	googleBookServiceFactory = {};
+	var resource = $resource('https://www.googleapis.com/books/v1/:verb');	
 
 	var _getBook = function (isbn, successCallBack) {
 
-		var url = "https://www.googleapis.com/books/v1/volumes?q=isbn:";	
 		isbn = _validarString(isbn);
-
-		if (isbn) {
-			var resource = $resource('https://www.googleapis.com/books/v1/:verb');
+		
+		if (isbn) {			
 			
+			//Procurar Livro por ISBN
 			resource.get({verb:'volumes', q:'isbn:' + isbn}, function (response) {
-
-				var dados = _validarResponse(response);
+				console.log(response);
+				var dados = helpers.refatorarLivro(response);
 				successCallBack(dados);
-
-			})
-
+			});
 		}
 	}
 
@@ -32,72 +30,6 @@ app.factory('googleBookService', ['$http', '$resource', function ($http, $resour
 			return null;
 		}
 		
-	}
-
-	var _validarResponse = function (data) {
-		dadosLivro = {};
-
-		atributosGoogle = [
-			'industryIdentifiers',
-			'title',
-			'imageLinks',
-			'authors',
-			'pageCount',
-			'publishedDate'
-		];
-
-		atributosKitap = [
-			'isbn',
-			'titulo',
-			'imagemLink',
-			'autores',
-			'paginas',
-			'publicacao'
-		];
-
-		if (data.totalItems > 0) {
-		 	dados = data.items[0].volumeInfo;
-		}else {
-			dados = {};
-		}
-
-		atributosGoogle.forEach(
-			function (value, index) {
-				if (value in dados) {
-					if (atributosKitap[index] == 'autores')
-					{
-						dadosLivro.autores = dados[value].join(',');
-					} 
-					else if (atributosKitap[index] == 'isbn')
-					{
-						auxiliar = {};
-						auxiliar.isbn = dados[value];
-						if (auxiliar.isbn[0].type == 'ISBN_10') {
-							dadosLivro.isbn = [auxiliar.isbn[0].identifier, auxiliar.isbn[1].identifier];
-						} else{
-							dadosLivro.isbn = [auxiliar.isbn[1].identifier, auxiliar.isbn[0].identifier];
-						};
-						
-					}
-					else if (atributosKitap[index] == 'imagemLink') 
-					{
-						dadosLivro.imagemLink = dados[value].thumbnail;
-					}else 
-					{
-						dadosLivro[atributosKitap[index]] = dados[value];
-					}			
-				}else {
-					if (atributosKitap[index] == 'imagemLink')
-					{
-						dadosLivro.imagemLink = 'content/imagens/defaultbook.png';
-					}else {
-						dadosLivro[atributosKitap[index]] = '';
-					}
-					
-				};
-			}
-		);	
-		return dadosLivro;
 	}
 
 	googleBookServiceFactory.getBook = _getBook;
