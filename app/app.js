@@ -19,7 +19,7 @@ app.config(function ($routeProvider) {
     })
 
     .when("/painel", {
-        controller: "",
+        controller: "painelController",
         templateUrl: "app/views/usuario/painel.html"
     })
 
