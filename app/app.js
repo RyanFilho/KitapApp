@@ -24,12 +24,12 @@ app.config(function ($routeProvider) {
     })
 
     .when("/livro/cadastro", {
-        controller: "cadastroLivroController",
+        controller: "cadastroExemplarController",
         templateUrl: "app/views/livro/cadastro.html"
     })
 
     .when("/search", {
-        controller: "",
+        controller: "searchController",
         templateUrl: "app/views/livro/search.html"
     })
 

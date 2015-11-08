@@ -30,7 +30,7 @@
 		    		maxlength="13" 
 		    		ng-required="true" 
 		    		ng-model="livro.isbn[1]" 
-		    		ng-blur="procurarExistente(livro.isbn[1])">      
+		    		ng-blur="procurarDados(livro.isbn[1])">      
 			  </div>
 
 			  <!-- ISBN 10 INPUT -->
@@ -51,9 +51,9 @@
 		    		ng-maxlength="10" 
 		    		minlength="10" 
 		    		maxlength="10" 
-		    		ng-blur="procurarExistente(livro.isbn[0])">	    			        
+		    		ng-blur="procurarDados(livro.isbn[0])">	    			        
 			  </div>
-
+			  <div ng-hide="existente">
 			  <!-- TITULO INPUT -->
 			  <div 
 			  	class="form-group" 
@@ -113,7 +113,7 @@
 			    	ng-required="true" 
 			    	ng-model="livro.paginas">			        
 			  </div>
-
+			  </div> <!-- Titulo, autor ... --> 
 			  <!-- SUBMIT -->
 			  <button 			  	
 			  	ng-disabled="cadastroLivroForm.$invalid" 

@@ -1,5 +1,5 @@
 'use strict';
-app.controller('cadastroLivroController', ['$scope', 'googleBookService', 'cadastroLivroService', function ($scope, googleBookService, cadastroLivroService) {
+app.controller('cadastroExemplarController', ['$scope', 'googleBookService', 'livroService', function ($scope, googleBookService, livroService) {
 	$scope.livro = {
 		imagemLink: 'content/imagens/defaultbook.png',
 		isbn: ['', ''],
@@ -11,17 +11,19 @@ app.controller('cadastroLivroController', ['$scope', 'googleBookService', 'cadas
 		descricao:'',
 		categoriaID:'',
 	};
-	$scope.procurarExistente = function (isbn) {
+	//Variavel para identificar se o livro já existe
+	$scope.existente = false;
+	$scope.procurarDados = function (isbn) {
+		
 		googleBookService.getBook(isbn, function (livroBack) {
+			
 			$scope.livro = livroBack;	
 		});
+
 	}
 
 	$scope.cadastrarLivro = function (livro) {
-		var Cadastro = new cadastroLivroService();
-		Cadastro.data = livro;
-		console.log("cadastrado :" + livro);
-		//Cadastro.save();
+
 	}
 
 }]);

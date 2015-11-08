@@ -6,9 +6,9 @@
 <section class="row">
 			
 	<article class="col-md-8 col-md-offset-2">
-		<form action="/#/search" method="GET">
+		<form ng-submit="pesquisar(query)" method="GET">
 			<div class="input-group input-group-lg">
-				<input class="form-control" name="query" type="text" placeholder="Autor, Titulo ..." autofocus>
+				<input ng-model="query" class="form-control" name="query" type="text" placeholder="Autor, Titulo ..." autofocus>
 				<span class="input-group-btn">
 	        		<button class="btn btn-personalizado" type="submit">Pesquisar!</button>
 	      		</span>
