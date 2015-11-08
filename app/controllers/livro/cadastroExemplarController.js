@@ -15,8 +15,7 @@ app.controller('cadastroExemplarController', ['$scope', 'googleBookService', 'li
 	$scope.existente = false;
 	$scope.procurarDados = function (isbn) {
 		
-		googleBookService.getBook(isbn, function (livroBack) {
-			
+		googleBookService.getBook(isbn, function (livroBack) {			
 			$scope.livro = livroBack;	
 		});
 

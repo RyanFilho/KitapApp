@@ -54,78 +54,78 @@
 		    		ng-blur="procurarDados(livro.isbn[0])">	    			        
 			  </div>
 			  <div ng-hide="existente">
-			  <!-- TITULO INPUT -->
-			  <div 
-			  	class="form-group" 
-			  	ng-class="{ 'has-error' : cadastroLivroForm.titulo.$invalid && !cadastroLivroForm.titulo.$pristine }">
+				  <!-- TITULO INPUT -->
+				  <div 
+				  	class="form-group" 
+				  	ng-class="{ 'has-error' : cadastroLivroForm.titulo.$invalid && !cadastroLivroForm.titulo.$pristine }">
 
-			    <label for="titulo" class="control-label">Titulo</label>
-			    <input 
-			    	type="text" 
-			    	class="form-control"
-			    	id="titulo" 
-			    	name="titulo" 
-			    	placeholder="Ex: O Pequeno Príncipe" 
-			    	ng-required="true" 
-			    	ng-model="livro.titulo">		    
-			  </div>
+				    <label for="titulo" class="control-label">Titulo</label>
+				    <input 
+				    	type="text" 
+				    	class="form-control"
+				    	id="titulo" 
+				    	name="titulo" 
+				    	placeholder="Ex: O Pequeno Príncipe" 
+				    	ng-required="true" 
+				    	ng-model="livro.titulo">		    
+				  </div>
 
-			  <!-- AUTORES INPUT -->
-			  <div class="form-group" 
-			  	ng-class="{ 'has-error' : cadastroLivroForm.autores.$invalid && !cadastroLivroForm.autores.$pristine }">
-			    <label for="autores" class="control-label">Autores</label>
-			    <input 
-			    	type="text" 
-			    	class="form-control" 
-			    	id="autores" 
-			    	name="autores" 
-			    	placeholder="Ex: Antoine de Saint-Exupéry"
-			    	ng-required="true" 
-			    	ng-model="livro.autores">		    
-			  </div>
+				  <!-- AUTORES INPUT -->
+				  <div class="form-group" 
+				  	ng-class="{ 'has-error' : cadastroLivroForm.autores.$invalid && !cadastroLivroForm.autores.$pristine }">
+				    <label for="autores" class="control-label">Autores</label>
+				    <input 
+				    	type="text" 
+				    	class="form-control" 
+				    	id="autores" 
+				    	name="autores" 
+				    	placeholder="Ex: Antoine de Saint-Exupéry"
+				    	ng-required="true" 
+				    	ng-model="livro.autores">		    
+				  </div>
 
-			  <!-- ANO DE PUBLICAÇÃO INPUT -->
-			  <div 
-			  	class="form-group" 
-			  	ng-class="{ 'has-error' : cadastroLivroForm.publicacao.$invalid && !cadastroLivroForm.publicacao.$pristine }">
+				  <!-- ANO DE PUBLICAÇÃO INPUT -->
+				  <div 
+				  	class="form-group" 
+				  	ng-class="{ 'has-error' : cadastroLivroForm.publicacao.$invalid && !cadastroLivroForm.publicacao.$pristine }">
 
-			    <label for="publicacao" class="control-label">Ano de publicação</label>
-			    <input  
-			    	class="form-control" 
-			    	id="publicacao" 
-			    	name="publicacao" 
-			    	placeholder="Ex: 1943" 
-			    	ng-required="true" 
-			    	ng-model="livro.publicacao">			       
-			  </div>
+				    <label for="publicacao" class="control-label">Ano de publicação</label>
+				    <input  
+				    	class="form-control" 
+				    	id="publicacao" 
+				    	name="publicacao" 
+				    	placeholder="Ex: 1943" 
+				    	ng-required="true" 
+				    	ng-model="livro.publicacao">			       
+				  </div>
 
-			  <!-- NUMERO DE PAGINAS INPUT -->
-			  <div 
-			  	class="form-group" 
-			  	ng-class="{ 'has-error' : cadastroLivroForm.paginas.$invalid && !cadastroLivroForm.paginas.$pristine }">
+				  <!-- NUMERO DE PAGINAS INPUT -->
+				  <div 
+				  	class="form-group" 
+				  	ng-class="{ 'has-error' : cadastroLivroForm.paginas.$invalid && !cadastroLivroForm.paginas.$pristine }">
 
-			    <label for="paginas" class="control-label">Nº Paginas</label>
-			    <input  
-			    	class="form-control" 
-			    	id="paginas" 
-			    	name="paginas" 
-			    	placeholder="Ex: 96" 
-			    	ng-required="true" 
-			    	ng-model="livro.paginas">			        
-			  </div>
-			  </div> <!-- Titulo, autor ... --> 
-			  <!-- SUBMIT -->
-			  <button 			  	
-			  	ng-disabled="cadastroLivroForm.$invalid" 
-			  	class="btn btn-personalizado btn-block"
-			  	type="submit" 
-			  	>Cadastrar</button>
+				    <label for="paginas" class="control-label">Nº Paginas</label>
+				    <input  
+				    	class="form-control" 
+				    	id="paginas" 
+				    	name="paginas" 
+				    	placeholder="Ex: 96" 
+				    	ng-required="true" 
+				    	ng-model="livro.paginas">			        
+				  </div>
+				  </div> <!-- Titulo, autor ... --> 
+				  <!-- SUBMIT -->
+				  <button 			  	
+				  	ng-disabled="cadastroLivroForm.$invalid" 
+				  	class="btn btn-personalizado btn-block"
+				  	type="submit" 
+				  	>Cadastrar</button>
 
-			  <div 
-			  	ng-class="{ 'has-error' : cadastroLivroForm.$invalid }" 
-			  	ng-show="cadastroLivroForm.$invalid">
-			  	<p class="help-block">Preencha todos os campos.</p>	
-			  </div>
+				  <div 
+				  	ng-class="{ 'has-error' : cadastroLivroForm.$invalid }" 
+				  	ng-show="cadastroLivroForm.$invalid">
+				  	<p class="help-block">Preencha todos os campos.</p>	
+				  </div>
 
 			</form>
 		</div>

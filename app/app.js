@@ -46,6 +46,9 @@ app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptorService');
 });
 
-app.run(['authService', function (authService) {
+app.run(['authService', '$rootScope', '$location', function (authService, $rootScope, $location) {
     authService.fillAuthData();
+    $rootScope.pesquisar = function(value) {
+        $location.path('/search').search({query: value});
+    };
 }]);

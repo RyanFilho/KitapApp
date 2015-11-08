@@ -1,10 +1,29 @@
-app.factory('livroService', ['$resource', function ($resource) {
-	var resource = $resource('http://wskitap.azurewebsites.net/api/:verb');
-	var _procurarLivro = function (query) {
-		var resultado = [];
-		resource.get({verb: 'livros', isbn: query}, function (data) {
-			
+app.factory('livroService', ['$resource', 'helpersService', function ($resource, helpers) {
+
+	var livroServiceFactory = {};
+	var resource = $resource('http://wskitap.azurewebsites.net/api/livros');
+
+	var _procurarLivro = function (query, callback) {
+
+		//Procurar por isbn
+		resource.query({isbn: query}, function (data) {
+			var livros = data;
+			if (livros[0]) {
+				callback(livros);
+			};
 		});
+
+		//Procurar por titulo
+		resource.query({titulo: query}, function (data) {
+			var livros = data;
+			if (livros[0]) {
+				callback(livros);
+			};
+		});
+
+		
 	}
-	return $resource('wskitap.azurewebsites.net/api/livros/:id');
+
+	livroServiceFactory.procurarLivro = _procurarLivro;
+	return livroServiceFactory;
 }]);

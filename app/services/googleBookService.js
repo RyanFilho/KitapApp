@@ -1,17 +1,18 @@
-app.factory('googleBookService', ['$http', '$resource', function ($http, $resource) {
+app.factory('googleBookService', ['$http', '$resource', 'helpersService', function ($http, $resource, helpers) {
 	googleBookServiceFactory = {};
+	var resource = $resource('https://www.googleapis.com/books/v1/:verb');	
 
 	var _getBook = function (isbn, successCallBack) {
 
 		isbn = _validarString(isbn);
 		
-		if (isbn) {
-			var resource = $resource('https://www.googleapis.com/books/v1/:verb');			
+		if (isbn) {			
+			
+			//Procurar Livro por ISBN
 			resource.get({verb:'volumes', q:'isbn:' + isbn}, function (response) {
 				console.log(response);
-				var dados = _validarResponse(response);
+				var dados = helpers.refatorarLivro(response);
 				successCallBack(dados);
-
 			});
 		}
 	}
