@@ -9,15 +9,18 @@
 
 <div class="panel panel-default col-md-3">
   <div class="panel-body">
-    <div class="thumbnail">
-      <img ng-src="{{livro.imagemLink}}" alt="livro.titulo">
-      <div class="caption">
-        <h4>{{livro.titulo}}</h4>
-        <h5>{{livro.autores}}</h5>
-        <p>{{livro.descricao}}</p>
-        <p><a href="#" class="btn btn-primary" role="button">Pedir</a> <a href="#" class="btn btn-default" role="button">Favorito</a></p>
-      </div>
-    </div>
+            <div ng-repeat="livro in livros">
+              <div class="thumbnail">
+                <img ng-src="{{livro.imagemLink}}" alt="livro.titulo">
+                <div class="caption">
+                  <h4>{{livro.titulo}}</h4>
+                  <h5>{{livro.autores}}</h5>
+                  <p>{{livro.descricao}}</p>
+                  <p><a href="#" class="btn btn-primary" role="button">Pedir</a> <a href="#" class="btn btn-default" role="button">Favorito</a></p>
+                </div>
+              </div>
+            </div> 
+
   </div>
 </div>
 </div>
