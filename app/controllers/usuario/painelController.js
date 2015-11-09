@@ -1,7 +1,9 @@
 app.controller('painelController', ['$scope', '$resource', 'usuarioService', 'livroService', function ($scope, $resource, usuarioService, livroService) {
 	usuarioService.exemplares(function(exemplares) {
+
 		$scope.exemplares = exemplares;
 		$scope.livros = [];
+
 		exemplares.forEach(function (exemplar) {
 			livroService.livroPorIsbn(exemplar.livro, function (livro) {
 				if(!livro.imagemLink){
@@ -10,5 +12,6 @@ app.controller('painelController', ['$scope', '$resource', 'usuarioService', 'li
 			 	$scope.livros.push(livro);
 			});
 		});
+		
 	});
 }]);

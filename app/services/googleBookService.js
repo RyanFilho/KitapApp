@@ -6,8 +6,7 @@ app.factory('googleBookService', ['$http', '$resource', 'helpersService', functi
 
 		isbn = _validarString(isbn);
 		
-		if (isbn) {			
-			
+		if (isbn) {					
 			//Procurar Livro por ISBN
 			resource.get({verb:'volumes', q:'isbn:' + isbn}, function (response) {
 				console.log(response);

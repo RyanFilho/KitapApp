@@ -7,20 +7,39 @@
 		<li role="presentation"><a href="#">Configurações</a></li>	
 	</ul>
 
-<div class="panel panel-default col-md-3">
-  <div class="panel-body">
-            <div ng-repeat="livro in livros">
-              <div class="thumbnail">
-                <img ng-src="{{livro.imagemLink}}" alt="livro.titulo">
-                <div class="caption">
-                  <h4>{{livro.titulo}}</h4>
-                  <h5>{{livro.autores}}</h5>
-                  <p>{{livro.descricao}}</p>
-                  <p><a href="#" class="btn btn-primary" role="button">Pedir</a> <a href="#" class="btn btn-default" role="button">Favorito</a></p>
-                </div>
-              </div>
-            </div> 
+    <div class="panel panel-default col-md-10">
+      <div class="panel-heading">
+        <h3 class="panel-title">Meus livros</h3>
+      </div>
+      <div class="panel-body">
+        <div ng-repeat="livro in livros">
+          <div class="thumbnail">
+            <img ng-src="{{livro.imagemLink}}" alt="livro.titulo">
+            <div class="caption">
+              <h4>{{livro.titulo}}</h4>
+              <h5>{{livro.autores}}</h5>
+              <p>{{livro.descricao}}</p>
+              <p><a href="#" class="btn btn-primary" role="button">Pedir</a> <a href="#" class="btn btn-default" role="button">Favorito</a></p>
+            </div>
+          </div>
+        </div> 
+      </div>
 
-  </div>
-</div>
+      <div class="panel-heading">
+        <h3 class="panel-title">Emprestimos</h3>
+      </div>
+      <div class="panel-body">
+        <div ng-repeat="livro in livros">
+          <div class="thumbnail">
+            <img ng-src="{{livro.imagemLink}}" alt="livro.titulo">
+            <div class="caption">
+              <h4>{{livro.titulo}}</h4>
+              <h5>{{livro.autores}}</h5>
+              <p>{{livro.descricao}}</p>
+              <p><a href="#" class="btn btn-primary" role="button">Pedir</a> <a href="#" class="btn btn-default" role="button">Favorito</a></p>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
 </div>

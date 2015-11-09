@@ -4,21 +4,28 @@ app.factory('livroService', ['$resource', 'helpersService', function ($resource,
 	var resource = $resource('http://wskitap.azurewebsites.net/api/livros');
 
 	var _procurarLivro = function (query, callback) {
-
+		var livros = [];
 		//Procurar por isbn
-		resource.query({isbn: query}, function (data) {
-			var livros = data;
+		resource.get({isbn: query}, function (data) {
+			livros.push(data);
 			if (livros[0]) {
 				callback(livros);
+			}else {
+				callback(null);
 			};
 		});
 
 		//Procurar por titulo
 		resource.query({titulo: query}, function (data) {
-			var livros = data;
-			if (livros[0]) {
-				callback(livros);
-			};
+			data.forEach(function (livro) {
+				if (livro) {
+					livros.push(livro);
+					callback(livros);
+				}else {
+					callback(null);
+				};
+			})
+
 		});
 
 	}
