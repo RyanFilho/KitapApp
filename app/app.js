@@ -48,7 +48,4 @@ app.config(function ($httpProvider) {
 
 app.run(['authService', '$rootScope', '$location', function (authService, $rootScope, $location) {
     authService.fillAuthData();
-    $rootScope.pesquisar = function(value) {
-        $location.path('/search').search({query: value});
-    };
 }]);
