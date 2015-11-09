@@ -21,9 +21,18 @@ app.factory('livroService', ['$resource', 'helpersService', function ($resource,
 			};
 		});
 
-		
+	}
+
+	var _livroPorIsbn = function (isbn, callback) {
+		resource.get({isbn: isbn}, function (data) {
+			var livro = data;
+			if (livro) {
+				callback(livro);
+			};
+		});
 	}
 
 	livroServiceFactory.procurarLivro = _procurarLivro;
+	livroServiceFactory.livroPorIsbn = _livroPorIsbn;
 	return livroServiceFactory;
 }]);
